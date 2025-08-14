@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Services
 {
     /// <summary>
     /// Observer implementation for streaming data.

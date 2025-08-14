@@ -1,4 +1,4 @@
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Data
 {
     /// <summary>
     /// Represents an EPEX trade

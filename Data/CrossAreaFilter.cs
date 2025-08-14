@@ -1,4 +1,4 @@
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Data
 {
     /// <summary>
     /// Filter mode for cross-area trade matching.

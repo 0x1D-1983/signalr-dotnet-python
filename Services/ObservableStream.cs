@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using SignalRFilterPlay.Data;
 
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Services
 {
     public class ObservableStream<T>
     {

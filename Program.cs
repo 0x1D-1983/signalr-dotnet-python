@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using SignalRFilterPlay;
+using SignalRFilterPlay.Data;
+using SignalRFilterPlay.Services;
+using SignalRFilterPlay.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 

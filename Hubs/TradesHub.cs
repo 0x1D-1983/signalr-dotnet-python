@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Collections.Concurrent;
+using SignalRFilterPlay.Data;
+using SignalRFilterPlay.Hubs;
 
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Hubs
 {
     /// <summary>
     /// SignalR hub for trading data.

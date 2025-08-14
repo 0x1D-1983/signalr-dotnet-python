@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Text.Json;
+using SignalRFilterPlay.Data;
+using SignalRFilterPlay.Hubs;
+using SignalRFilterPlay.Services;
 
-namespace SignalRFilterPlay
+namespace SignalRFilterPlay.Services
 {
     /// <summary>
     /// Streams trades to the TradesHub.
