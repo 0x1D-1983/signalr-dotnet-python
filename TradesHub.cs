@@ -17,13 +17,11 @@ namespace SignalRFilterPlay
         /// </summary>
         /// <param name="filter">The filter.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        public Task Subscribe(/*SignalRClientFilter filter*/)
+        public async Task Subscribe(SignalRClientFilter filter)
         {
-            // _filters.AddOrUpdate(Context.ConnectionId, filter, (_, _) => filter);
+            _filters.AddOrUpdate(Context.ConnectionId, filter, (_, _) => filter);
 
-            // await Clients.Caller.SendAsync("Subscribed", new { ok = true, connectionId = Context.ConnectionId, filter = filter});
-
-            return Task.CompletedTask;
+            await Clients.Caller.SendAsync("Subscribed", new { ok = true, connectionId = Context.ConnectionId, filter = filter});
         }
 
         /// <summary>
@@ -33,7 +31,7 @@ namespace SignalRFilterPlay
         /// <returns>A task that represents the asynchronous operation.</returns>
         public override Task OnDisconnectedAsync(Exception? exception)
         {
-            // _filters.TryRemove(Context.ConnectionId, out _);
+            _filters.TryRemove(Context.ConnectionId, out _);
             return base.OnDisconnectedAsync(exception);
         }
 

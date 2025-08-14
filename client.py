@@ -74,7 +74,7 @@ filter.ParentMarketArea = "AT"
 # filter.Area = "APG"
 # filter.CrossAreaFilter = CrossAreaFilter.Include
 
-hub_connection.send("Subscribe", [])
+hub_connection.send("Subscribe", [filter])
 
 sleep(1)
 print(f"Subscribed")

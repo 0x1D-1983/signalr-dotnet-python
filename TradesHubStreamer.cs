@@ -33,19 +33,20 @@ namespace SignalRFilterPlay
 
             var observer = new StreamObserver<EpexTrade>(async trade =>
             {
-                
-                // var filters = TradesHub.GetFilters();
-                // foreach (var (connectionId, filter) in filters)
-                // {
-                //     if (trade.WhereAreaMatch(filter.ParentMarketArea, filter.Area, filter.CrossAreaFilter))
-                //     {
-                //         await _hubContext.Clients.Client(connectionId).SendAsync("Trade", trade, stoppingToken);
-                //     }
-                // }
-
                 Console.WriteLine($"Streaming trade: {JsonSerializer.Serialize(trade)}");
 
-                await _hubContext.Clients.All.SendAsync("Trade", trade, stoppingToken);
+                var filters = TradesHub.GetFilters();
+                foreach (var (connectionId, filter) in filters)
+                {
+                    if (trade.WhereAreaMatch(filter.ParentMarketArea))
+                    {
+                        await _hubContext.Clients.Client(connectionId).SendAsync("Trade", trade, stoppingToken);
+                    }
+                }
+
+                
+
+                // await _hubContext.Clients.All.SendAsync("Trade", trade, stoppingToken);
 
             }, completionSource);
 

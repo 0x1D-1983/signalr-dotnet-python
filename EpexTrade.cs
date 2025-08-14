@@ -43,23 +43,25 @@ namespace SignalRFilterPlay
         /// <summary>
         /// Checks if the trade matches the area filters
         /// </summary>
-        public bool WhereAreaMatch(string? parentMarketArea, string? area, CrossAreaFilter crossAreaFilter)
+        public bool WhereAreaMatch(string? parentMarketArea)
         {
-            if (string.IsNullOrEmpty(parentMarketArea) && string.IsNullOrEmpty(area))
-                return true;
+            // if (string.IsNullOrEmpty(parentMarketArea) && string.IsNullOrEmpty(area))
+            //     return true;
 
-            if (!string.IsNullOrEmpty(parentMarketArea) && ParentMarketArea != parentMarketArea)
-                return false;
+            // if (!string.IsNullOrEmpty(parentMarketArea) && ParentMarketArea != parentMarketArea)
+            //     return false;
 
-            if (string.IsNullOrEmpty(area))
-                return true;
+            // if (string.IsNullOrEmpty(area))
+            //     return true;
 
-            return crossAreaFilter switch
-            {
-                CrossAreaFilter.Include => BuyArea == area || SellArea == area,
-                CrossAreaFilter.Exclude => BuyArea == area && SellArea == area,
-                _ => true
-            };
+            // return crossAreaFilter switch
+            // {
+            //     CrossAreaFilter.Include => BuyArea == area || SellArea == area,
+            //     CrossAreaFilter.Exclude => BuyArea == area && SellArea == area,
+            //     _ => true
+            // };
+
+            return parentMarketArea == ParentMarketArea;
         }
     }
 }
